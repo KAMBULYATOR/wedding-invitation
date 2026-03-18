@@ -15,103 +15,117 @@
             background-color: #fdfaf6;
         }
         header {
-            height: 100vh;
+            height: 80vh;
             display: flex;
             flex-direction: column;
             justify-content: center;
-            background: linear-gradient(rgba(255,255,255,0.3), rgba(255,255,255,0.3)), 
-                        url('https://images.unsplash.com/photo-1519741497674-611481863552?auto=format&fit=crop&w=1350&q=80'); /* Можно заменить на свое фото */
+            background: linear-gradient(rgba(255,255,255,0.2), rgba(255,255,255,0.2)), 
+                        url('https://images.unsplash.com/photo-1519741497674-611481863552?auto=format&fit=crop&w=1350&q=80');
             background-size: cover;
             background-position: center;
         }
         h1 {
             font-family: 'Great Vibes', cursive;
-            font-size: 4rem;
+            font-size: 4.5rem;
             margin-bottom: 10px;
             color: #8e7d6f;
+            text-shadow: 1px 1px 2px rgba(255,255,255,0.8);
         }
-        .date { font-size: 1.5rem; letter-spacing: 3px; }
-        .section { padding: 60px 20px; }
-        #countdown {
-            display: flex;
-            justify-content: center;
-            gap: 20px;
-            font-size: 1.2rem;
-            margin-top: 20px;
+        .date-top { font-size: 1.2rem; letter-spacing: 5px; text-transform: uppercase; margin-top: 10px; }
+
+        /* Стили календаря */
+        .calendar-section { padding: 80px 20px; }
+        .calendar-container {
+            max-width: 320px;
+            margin: 0 auto;
+            background: #fff;
+            padding: 30px;
+            border-radius: 15px;
+            box-shadow: 0 10px 40px rgba(142, 125, 111, 0.1);
         }
-        .time-block { background: #fff; padding: 15px; border-radius: 8px; box-shadow: 0 4px 6px rgba(0,0,0,0.05); min-width: 70px; }
-        .number { display: block; font-size: 2rem; font-weight: bold; color: #8e7d6f; }
+        .month-name {
+            font-size: 1.8rem;
+            font-family: 'Great Vibes', cursive;
+            color: #8e7d6f;
+            margin-bottom: 20px;
+        }
+        .calendar-grid {
+            display: grid;
+            grid-template-columns: repeat(7, 1fr);
+            gap: 10px;
+        }
+        .day-name { font-size: 0.7rem; font-weight: bold; color: #bcbcbc; margin-bottom: 10px; }
+        .day { font-size: 1rem; position: relative; padding: 5px 0; }
+        
+        /* Сердечко вокруг даты */
+        .heart-date {
+            color: #8e7d6f;
+            font-weight: bold;
+        }
+        .heart-date::before {
+            content: '❤';
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            font-size: 2.2rem;
+            color: rgba(142, 125, 111, 0.2); /* Цвет сердечка-рамки */
+            z-index: 1;
+        }
+        .heart-date span { position: relative; z-index: 2; }
+
         .details-card {
             max-width: 600px;
-            margin: 0 auto;
+            margin: 40px auto;
             background: white;
             padding: 40px;
             border-radius: 20px;
             box-shadow: 0 10px 30px rgba(0,0,0,0.05);
         }
-        .btn {
-            display: inline-block;
-            margin-top: 20px;
-            padding: 12px 30px;
-            background-color: #8e7d6f;
-            color: white;
-            text-decoration: none;
-            border-radius: 25px;
-            transition: 0.3s;
-        }
-        .btn:hover { background-color: #6f5f54; }
     </style>
 </head>
 <body>
 
     <header>
-        <h1>Александр & Мария</h1>
-        <div class="date">25.07.2026</div>
+        <h1>Станислав & Мария</h1>
+        <div class="date-top">10 августа 2026</div>
     </header>
 
-    <div class="section">
-        <h2>До торжества осталось:</h2>
-        <div id="countdown">
-            <div class="time-block"><span class="number" id="days">0</span>дн</div>
-            <div class="time-block"><span class="number" id="hours">0</span>час</div>
-            <div class="time-block"><span class="number" id="minutes">0</span>мин</div>
+    <div class="calendar-section">
+        <div class="calendar-container">
+            <div class="month-name">Август 2026</div>
+            <div class="calendar-grid">
+                <div class="day-name">ПН</div><div class="day-name">ВТ</div><div class="day-name">СР</div>
+                <div class="day-name">ЧТ</div><div class="day-name">ПТ</div><div class="day-name">СБ</div><div class="day-name">ВС</div>
+                
+                <div class="day"></div><div class="day"></div><div class="day"></div>
+                <div class="day"></div><div class="day"></div><div class="day">1</div><div class="day">2</div>
+                
+                <div class="day">3</div><div class="day">4</div><div class="day">5</div>
+                <div class="day">6</div><div class="day">7</div><div class="day">8</div><div class="day">9</div>
+                
+                <div class="day heart-date"><span>10</span></div>
+                
+                <div class="day">11</div><div class="day">12</div><div class="day">13</div>
+                <div class="day">14</div><div class="day">15</div><div class="day">16</div><div class="day">17</div>
+                <div class="day">18</div><div class="day">19</div><div class="day">20</div>
+                <div class="day">21</div><div class="day">22</div><div class="day">23</div><div class="day">24</div>
+                <div class="day">25</div><div class="day">26</div><div class="day">27</div>
+                <div class="day">28</div><div class="day">29</div><div class="day">30</div><div class="day">31</div>
+            </div>
         </div>
     </div>
 
-    <div class="section" style="background-color: #f7f2ed;">
+    <div class="section" style="background-color: #f7f2ed; padding: 60px 20px;">
         <div class="details-card">
             <h2>Программа дня</h2>
             <p><strong>15:00</strong> — Сбор гостей</p>
-            <p><strong>16:00</strong> — Выездная церемония</p>
-            <p><strong>17:00</strong> — Праздничный ужин</p>
-            <hr style="border: 0; border-top: 1px solid #eee; margin: 20px 0;">
-            <h3>Место проведения</h3>
-            <p>Загородный комплекс "Лесное поместье", ул. Зеленая, 1</p>
-            <a href="https://maps.google.com" target="_blank" class="btn">Открыть карту</a>
+            <p><strong>16:00</strong> — Торжественная регистрация</p>
+            <p><strong>17:00</strong> — Начало банкета</p>
+            <hr style="border: 0; border-top: 1px solid #eee; margin: 25px 0;">
+            <p>Ждем вас по адресу: <br> <strong>Загородный клуб, г. Воронеж</strong></p>
         </div>
     </div>
 
-    <footer class="section">
-        <p>Будем рады видеть вас на нашем празднике!</p>
-    </footer>
-
-    <script>
-        // Установите дату свадьбы здесь
-        const weddingDate = new Date("July 25, 2026 16:00:00").getTime();
-
-        const timer = setInterval(function() {
-            const now = new Date().getTime();
-            const distance = weddingDate - now;
-
-            document.getElementById("days").innerText = Math.floor(distance / (1000 * 60 * 60 * 24));
-            document.getElementById("hours").innerText = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
-            document.getElementById("minutes").innerText = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
-
-            if (distance < 0) {
-                clearInterval(timer);
-                document.getElementById("countdown").innerHTML = "Ура! Этот день настал!";
-            }
-        }, 1000);
-    </script>
 </body>
 </html>
